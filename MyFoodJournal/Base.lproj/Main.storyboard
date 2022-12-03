@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TCc-au-b7s">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My Food Journal-->
+        <scene sceneID="DtX-MW-jNY">
+            <objects>
+                <viewController title="My Food Journal" id="DlN-bH-g8j" customClass="MainViewController" customModule="MyFoodJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="th9-gC-mC8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wlo-gd-uda">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="1" reuseIdentifier="mealCell" focusStyle="custom" rowHeight="100" id="TY8-2x-d7d" customClass="MealTableViewCell" customModule="MyFoodJournal" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="49.5" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TY8-2x-d7d" id="VXU-YA-zQk">
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img4" translatesAutoresizingMaskIntoConstraints="NO" id="zuZ-eb-KTd">
+                                                    <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="AkU-Zx-lCk"/>
+                                                        <constraint firstAttribute="width" constant="80" id="CPc-ij-LG7"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pancakes, strawberry, peanut butter and maple syrup with mint leaf" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytv-RM-8Rl">
+                                                    <rect key="frame" x="100" y="10" width="275.5" height="66"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26 November" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RY4-1z-F6f">
+                                                    <rect key="frame" x="100" y="75" width="267.5" height="14"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zuZ-eb-KTd" firstAttribute="leading" secondItem="VXU-YA-zQk" secondAttribute="leading" constant="10" id="3Wx-Ty-W9U"/>
+                                                <constraint firstItem="Ytv-RM-8Rl" firstAttribute="top" secondItem="VXU-YA-zQk" secondAttribute="top" constant="10" id="3cn-Al-gHe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="RY4-1z-F6f" secondAttribute="trailing" constant="10" id="YTP-lT-lAi"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ytv-RM-8Rl" secondAttribute="trailing" constant="10" id="Z0k-gG-o5F"/>
+                                                <constraint firstItem="RY4-1z-F6f" firstAttribute="leading" secondItem="zuZ-eb-KTd" secondAttribute="trailing" constant="10" id="dVU-Kb-YlL"/>
+                                                <constraint firstItem="RY4-1z-F6f" firstAttribute="bottom" secondItem="VXU-YA-zQk" secondAttribute="bottomMargin" id="fYI-ZA-94j"/>
+                                                <constraint firstItem="zuZ-eb-KTd" firstAttribute="top" secondItem="VXU-YA-zQk" secondAttribute="top" constant="10" id="hZb-eO-7Lr"/>
+                                                <constraint firstAttribute="bottom" secondItem="zuZ-eb-KTd" secondAttribute="bottom" constant="10" id="rUH-30-HlI"/>
+                                                <constraint firstItem="zuZ-eb-KTd" firstAttribute="centerY" secondItem="VXU-YA-zQk" secondAttribute="centerY" id="w7O-um-FOn"/>
+                                                <constraint firstItem="Ytv-RM-8Rl" firstAttribute="leading" secondItem="zuZ-eb-KTd" secondAttribute="trailing" constant="10" id="ymz-WF-mde"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="RY4-1z-F6f" id="3SU-NE-Hz0"/>
+                                            <outlet property="mealDescription" destination="Ytv-RM-8Rl" id="k6Y-sb-Lgy"/>
+                                            <outlet property="mealImage" destination="zuZ-eb-KTd" id="Kxx-89-KoX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Fok-wJ-yFq"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Wlo-gd-uda" firstAttribute="top" secondItem="Fok-wJ-yFq" secondAttribute="top" id="BbT-TZ-KxD"/>
+                            <constraint firstAttribute="trailing" secondItem="Wlo-gd-uda" secondAttribute="trailing" id="SH2-nT-jmm"/>
+                            <constraint firstItem="Wlo-gd-uda" firstAttribute="bottom" secondItem="Fok-wJ-yFq" secondAttribute="bottom" id="SwC-KQ-Gzh"/>
+                            <constraint firstItem="Wlo-gd-uda" firstAttribute="leading" secondItem="th9-gC-mC8" secondAttribute="leading" id="byJ-wC-5bW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Food Journal" id="kJm-xD-zUv"/>
+                    <connections>
+                        <outlet property="mealTableView" destination="Wlo-gd-uda" id="2Tf-IN-XRm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qHy-Ib-84K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-326.08695652173918" y="1106.9196428571429"/>
+        </scene>
+        <!--My Food Journal-->
+        <scene sceneID="a09-Wq-BcW">
+            <objects>
+                <navigationController title="My Food Journal" id="TCc-au-b7s" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l6X-K5-Pd9">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DlN-bH-g8j" kind="relationship" relationship="rootViewController" id="zks-K1-ZdL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yvs-6y-W1a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-325" y="364"/>
+        </scene>
+        <!--Meal View Controller-->
+        <scene sceneID="tpa-e1-kZ9">
+            <objects>
+                <viewController storyboardIdentifier="viewMeal" id="eU0-ls-1Cl" customClass="MealViewController" customModule="MyFoodJournal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LAd-Ig-PgP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img4" translatesAutoresizingMaskIntoConstraints="NO" id="oXF-6d-V0B">
+                                <rect key="frame" x="20" y="102" width="374" height="380"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pancakes, strawberry, peanut butter and maple syrup with mint leaf." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWk-jV-jbP">
+                                <rect key="frame" x="20" y="502" width="374" height="108"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="108" id="254-8e-Pjm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26 November" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gon-kh-KpT">
+                                <rect key="frame" x="20" y="630" width="104" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="1ZA-H4-b3M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Eit-It-6IM"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oXF-6d-V0B" firstAttribute="top" secondItem="Eit-It-6IM" secondAttribute="top" constant="58" id="51B-gH-rBY"/>
+                            <constraint firstItem="FWk-jV-jbP" firstAttribute="top" secondItem="oXF-6d-V0B" secondAttribute="bottom" constant="20" id="A2M-ct-nXE"/>
+                            <constraint firstItem="oXF-6d-V0B" firstAttribute="trailing" secondItem="LAd-Ig-PgP" secondAttribute="trailingMargin" id="L45-eT-6J5"/>
+                            <constraint firstItem="Gon-kh-KpT" firstAttribute="top" secondItem="FWk-jV-jbP" secondAttribute="bottom" constant="20" id="Szf-cu-v99"/>
+                            <constraint firstItem="oXF-6d-V0B" firstAttribute="trailing" secondItem="FWk-jV-jbP" secondAttribute="trailing" id="TCy-Hz-FvS"/>
+                            <constraint firstItem="FWk-jV-jbP" firstAttribute="leading" secondItem="Gon-kh-KpT" secondAttribute="leading" id="V7H-DN-7y0"/>
+                            <constraint firstItem="Eit-It-6IM" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gon-kh-KpT" secondAttribute="trailing" symbolic="YES" id="Xcr-3W-Xr9"/>
+                            <constraint firstItem="oXF-6d-V0B" firstAttribute="leading" secondItem="LAd-Ig-PgP" secondAttribute="leadingMargin" id="wi4-UT-fhu"/>
+                            <constraint firstItem="Eit-It-6IM" firstAttribute="bottom" secondItem="Gon-kh-KpT" secondAttribute="bottom" constant="211" id="xBu-qK-Dbe"/>
+                            <constraint firstItem="oXF-6d-V0B" firstAttribute="leading" secondItem="FWk-jV-jbP" secondAttribute="leading" id="zh2-Mz-FgQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="73y-Mo-zrI"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="Gon-kh-KpT" id="UvD-Om-7h5"/>
+                        <outlet property="descriptionLabel" destination="FWk-jV-jbP" id="c7Q-O3-U97"/>
+                        <outlet property="mealImage" destination="oXF-6d-V0B" id="ygU-nw-yje"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="evV-0b-t4s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="1107"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="img4" width="2841" height="1735"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
