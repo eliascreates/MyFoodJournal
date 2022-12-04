@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,13 +35,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pancakes, strawberry, peanut butter and maple syrup with mint leaf" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytv-RM-8Rl">
                                             <rect key="frame" x="100" y="10" width="304" height="41"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" name="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec 03, 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RY4-1z-F6f">
                                             <rect key="frame" x="100" y="73" width="284" height="16"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" name="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -92,6 +93,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="tintColor" name="AccentColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="sGv-ar-KZT" kind="relationship" relationship="rootViewController" id="bgy-j9-hCb"/>
@@ -109,8 +111,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec 03, 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gon-kh-KpT">
-                                <rect key="frame" x="156" y="143" width="102" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="           " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gon-kh-KpT">
+                                <rect key="frame" x="185.5" y="143" width="43.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Wvy-Cu-VX6"/>
                                 </constraints>
@@ -128,8 +130,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img4" translatesAutoresizingMaskIntoConstraints="NO" id="oXF-6d-V0B">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cutePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="oXF-6d-V0B">
                                 <rect key="frame" x="20" y="182.5" width="374" height="374"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7a-Ux-7Ys">
                                 <rect key="frame" x="161" y="589" width="92" height="21"/>
@@ -155,10 +158,23 @@
                                     <action selector="deleteMeal:" destination="eU0-ls-1Cl" eventType="touchUpInside" id="FQd-4p-UsM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLICK EGGS TO ADD MEAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXs-aw-0b8">
+                                <rect key="frame" x="79.5" y="375" width="255" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="255" id="aIK-o1-eRk"/>
+                                    <constraint firstAttribute="height" constant="21" id="jZH-St-Abt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="19"/>
+                                <color key="textColor" name="AccentColor"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" systemColor="systemYellowColor"/>
+                                <size key="shadowOffset" width="-1" height="3"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Eit-It-6IM"/>
-                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="PXs-aw-0b8" firstAttribute="centerX" secondItem="LAd-Ig-PgP" secondAttribute="centerX" id="32t-C6-pTI"/>
                             <constraint firstItem="oXF-6d-V0B" firstAttribute="trailing" secondItem="LAd-Ig-PgP" secondAttribute="trailingMargin" id="4WC-Fh-FyC"/>
                             <constraint firstItem="eoW-to-PVL" firstAttribute="top" secondItem="thp-zG-z4p" secondAttribute="bottom" constant="28" id="9OZ-7u-ehl"/>
                             <constraint firstItem="g7a-Ux-7Ys" firstAttribute="centerX" secondItem="thp-zG-z4p" secondAttribute="centerX" id="IhW-cu-6S4"/>
@@ -168,11 +184,13 @@
                             <constraint firstItem="g7a-Ux-7Ys" firstAttribute="top" secondItem="oXF-6d-V0B" secondAttribute="bottom" constant="32.5" id="fDU-im-ovm"/>
                             <constraint firstItem="Eit-It-6IM" firstAttribute="bottom" secondItem="eoW-to-PVL" secondAttribute="bottom" constant="37" id="fI3-f6-mmA"/>
                             <constraint firstItem="thp-zG-z4p" firstAttribute="top" secondItem="g7a-Ux-7Ys" secondAttribute="bottom" constant="22" id="fWA-c8-nlp"/>
+                            <constraint firstItem="PXs-aw-0b8" firstAttribute="top" secondItem="LAd-Ig-PgP" secondAttribute="top" constant="375" id="iV0-rN-RIq"/>
                             <constraint firstItem="oXF-6d-V0B" firstAttribute="trailing" secondItem="thp-zG-z4p" secondAttribute="trailing" id="j8N-iM-fzV"/>
                             <constraint firstItem="Gon-kh-KpT" firstAttribute="centerX" secondItem="oXF-6d-V0B" secondAttribute="centerX" id="kZJ-pC-wKb"/>
                             <constraint firstItem="thp-zG-z4p" firstAttribute="trailing" secondItem="eoW-to-PVL" secondAttribute="trailing" id="qJB-3F-1Wg"/>
                             <constraint firstItem="oXF-6d-V0B" firstAttribute="top" secondItem="Gon-kh-KpT" secondAttribute="bottom" constant="19.5" id="tee-Db-bav"/>
                             <constraint firstItem="oXF-6d-V0B" firstAttribute="leading" secondItem="thp-zG-z4p" secondAttribute="leading" id="uuf-sH-tAr"/>
+                            <constraint firstItem="PXs-aw-0b8" firstAttribute="centerX" secondItem="oXF-6d-V0B" secondAttribute="centerX" id="vHe-XN-PcA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="73y-Mo-zrI">
@@ -183,6 +201,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPhotoLabel" destination="PXs-aw-0b8" id="DTE-Lb-b0a"/>
                         <outlet property="dateLabel" destination="Gon-kh-KpT" id="UvD-Om-7h5"/>
                         <outlet property="deleteButton" destination="eoW-to-PVL" id="Q0h-zn-arr"/>
                         <outlet property="infoTextEdit" destination="thp-zG-z4p" id="gEE-cv-7vZ"/>
@@ -198,7 +217,14 @@
         <segue reference="X2b-PS-PZE"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="cutePlaceholder" width="313" height="313"/>
         <image name="img4" width="2841" height="1735"/>
+        <namedColor name="AccentColor">
+            <color red="0.89411771299999998" green="0.52941179279999995" blue="0.5176470876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -210,6 +236,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

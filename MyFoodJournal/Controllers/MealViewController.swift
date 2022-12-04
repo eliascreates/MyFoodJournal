@@ -8,17 +8,16 @@
 import UIKit
 import CoreData
 
-
 class MealViewController: UIViewController {
 
     var selectedMeal: FoodItem? = nil
     
-
     @IBOutlet var mealImage: UIImageView!
     @IBOutlet var deleteButton: UIButton!
     @IBOutlet var infoTextEdit: UITextView!
     @IBOutlet var dateLabel: UILabel!
     
+    @IBOutlet weak var addPhotoLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +30,7 @@ class MealViewController: UIViewController {
             infoTextEdit.text = selectedMeal!.foodInfo
             dateLabel.text = selectedMeal!.dateCreated.wordForm
             deleteButton.isHidden = false
+            addPhotoLabel.isHidden = true
         }
 
     }
@@ -48,11 +48,14 @@ class MealViewController: UIViewController {
         infoTextEdit.layer.masksToBounds = true
         
         deleteButton.isHidden = true
+        addPhotoLabel.isHidden = false
         
         mealImage.isUserInteractionEnabled = true
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeMealPic))
+        let gesture = UITapGestureRecognizer(target: self,
+                                             action: #selector(didTapChangeMealPic))
         mealImage.addGestureRecognizer(gesture)
         title = "Food"
+        
     }
     
     @objc func didTapChangeMealPic() {
@@ -148,13 +151,13 @@ extension MealViewController: UIImagePickerControllerDelegate, UINavigationContr
     
     func presentPhotoActionSheet() {
         let alertList = UIAlertController(title: "Food Journal",
-                                            message: "",
+                                            message: "Select an image of the Food/Meal",
                                             preferredStyle: .actionSheet)
    
         alertList.addAction(UIAlertAction(title: "Take Photo",
                                             style: .default,
                                             handler: { [weak self] _ in
-            
+            print("Opps: use a phone that has a camera")
             self?.presentCamera()
         }))
         alertList.addAction(UIAlertAction(title: "Choose a Photo",
@@ -168,7 +171,6 @@ extension MealViewController: UIImagePickerControllerDelegate, UINavigationContr
                                             handler: nil))
         present(alertList, animated: true)
     }
-    
     
     func presentCamera() {
         let vc = UIImagePickerController()
@@ -196,6 +198,7 @@ extension MealViewController: UIImagePickerControllerDelegate, UINavigationContr
         }
         
         self.mealImage.image = selectedImage
+        addPhotoLabel.isHidden = true
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

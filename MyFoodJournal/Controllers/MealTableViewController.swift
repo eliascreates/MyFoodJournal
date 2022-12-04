@@ -14,7 +14,6 @@ class MealTableViewController: UITableViewController {
 
     var firstLoad = true
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +26,6 @@ class MealTableViewController: UITableViewController {
     }
     
     func existingMeals() -> [FoodItem] {
-        
      var mealList = [FoodItem]()
         
         for meal in meals {
@@ -38,8 +36,6 @@ class MealTableViewController: UITableViewController {
         return mealList
     }
     
-    
-    
     private func fetchFood() {
         let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
         let context = appDelegate.persistentContainer.viewContext
@@ -48,18 +44,13 @@ class MealTableViewController: UITableViewController {
             let results: NSArray = try context.fetch(request) as NSArray
             var meal: FoodItem
             for result in results {
-                
                 meal = result as! FoodItem
                 meals.append(meal)
-                
             }
-            
         } catch {
             print("Fetching Food Failed. I guess you'll have to try and remember all the food you ate 😭")
         }
     }
-    
-    
     
     //Tables Views - Displaying Data on the UI
     
@@ -87,7 +78,6 @@ class MealTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.performSegue(withIdentifier: "editMeal", sender: self)
@@ -95,7 +85,6 @@ class MealTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
-        
         if segue.identifier == "editMeal" {
             let indexPath = tableView.indexPathForSelectedRow!
             let editMeal = segue.destination as? MealViewController
