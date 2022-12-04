@@ -79,7 +79,6 @@ class MealViewController: UIViewController {
                     meal.dateDeleted = Date()
                     try context.save()
                     navigationController?.popViewController(animated: true)
-                    
                 }
                 
             }

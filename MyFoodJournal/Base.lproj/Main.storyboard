@@ -32,7 +32,7 @@
                                                 <constraint firstAttribute="width" constant="80" id="CPc-ij-LG7"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pancakes, strawberry, peanut butter and maple syrup with mint leaf" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytv-RM-8Rl">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pancakes, strawberry, peanut butter and maple syrup with mint leaf" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ytv-RM-8Rl">
                                             <rect key="frame" x="100" y="10" width="304" height="41"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" name="textColor"/>
@@ -158,8 +158,8 @@
                                     <action selector="deleteMeal:" destination="eU0-ls-1Cl" eventType="touchUpInside" id="FQd-4p-UsM"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLICK EGGS TO ADD MEAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXs-aw-0b8">
-                                <rect key="frame" x="79.5" y="375" width="255" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CLICK EGGS TO ADD MEAL PHOTO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXs-aw-0b8">
+                                <rect key="frame" x="43" y="375" width="328" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="255" id="aIK-o1-eRk"/>
                                     <constraint firstAttribute="height" constant="21" id="jZH-St-Abt"/>
@@ -220,7 +220,7 @@
         <image name="cutePlaceholder" width="313" height="313"/>
         <image name="img4" width="2841" height="1735"/>
         <namedColor name="AccentColor">
-            <color red="0.89411771299999998" green="0.52941179279999995" blue="0.5176470876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.89399999380111694" green="0.52899998426437378" blue="0.51800000667572021" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="textColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

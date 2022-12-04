@@ -15,6 +15,6 @@ extension Date {
         self.formatted(.dateTime
             .month(.abbreviated)
             .day(.twoDigits)
-            .year())
+            .year().minute(.twoDigits).hour(.conversationalDefaultDigits(amPM: .abbreviated)))
     }
 }

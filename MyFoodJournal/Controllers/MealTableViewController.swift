@@ -39,7 +39,9 @@ class MealTableViewController: UITableViewController {
     private func fetchFood() {
         let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
         let context = appDelegate.persistentContainer.viewContext
+        
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FoodItem")
+        
         do {
             let results: NSArray = try context.fetch(request) as NSArray
             var meal: FoodItem
