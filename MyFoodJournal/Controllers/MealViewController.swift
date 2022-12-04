@@ -6,40 +6,200 @@
 //
 
 import UIKit
+import CoreData
+
 
 class MealViewController: UIViewController {
 
-    private var meals = Meal.meals
-    var indexPos = 0
+    var selectedMeal: FoodItem? = nil
     
+
     @IBOutlet var mealImage: UIImageView!
-    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var deleteButton: UIButton!
+    @IBOutlet var infoTextEdit: UITextView!
     @IBOutlet var dateLabel: UILabel!
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureMealViews()
         
-        mealImage.image = meals[indexPos].image
-        descriptionLabel.text = meals[indexPos].description
-        dateLabel.text = meals[indexPos].date.wordForm
         
+        if selectedMeal != nil {
+            
+            mealImage.image = UIImage(data: selectedMeal!.foodImage)
+            infoTextEdit.text = selectedMeal!.foodInfo
+            dateLabel.text = selectedMeal!.dateCreated.wordForm
+            deleteButton.isHidden = false
+        }
+
+    }
+    
+    func configureMealViews() {
+        deleteButton.layer.cornerRadius = 8
+        deleteButton.layer.masksToBounds = true
+        mealImage.layer.cornerRadius = 8
+        mealImage.layer.masksToBounds = true
+        mealImage.layer.borderWidth = 0.5
+        
+        
+        infoTextEdit.layer.cornerRadius = 8
+        infoTextEdit.layer.borderWidth = 0.5
+        infoTextEdit.layer.masksToBounds = true
+        
+        deleteButton.isHidden = true
+        
+        mealImage.isUserInteractionEnabled = true
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeMealPic))
+        mealImage.addGestureRecognizer(gesture)
         title = "Food"
+    }
+    
+    @objc func didTapChangeMealPic() {
+        presentPhotoActionSheet()
+    }
+    
+    @IBAction func deleteMeal(_ sender: Any) {
+        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        let context = appDelegate.persistentContainer.viewContext
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose,
-                                                            target: self,
-                                                            action: nil)
-        self.navigationItem.backButtonTitle = "Main Page"
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FoodItem")
+        
+        do {
+            let results: NSArray = try context.fetch(request) as NSArray
+            var meal: FoodItem
+            for result in results {
+                
+                meal = result as! FoodItem
+                
+                if meal == selectedMeal {
+                    meal.dateDeleted = Date()
+                    try context.save()
+                    navigationController?.popViewController(animated: true)
+                    
+                }
+                
+            }
+            
+        } catch {
+            print("Fetching Food Failed. I guess you'll have to try and remember all the food you ate 😭")
+        }
+        
         
     }
     
     
-    private func addFood(food: Meal) {
+    
+    @IBAction func saveMeal(_ sender: Any) {
+        let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        let context = appDelegate.persistentContainer.viewContext
         
-        Meal.meals.append(food)
+        if selectedMeal == nil { //Enter new Meal
+        
+            let entity = NSEntityDescription.entity(forEntityName: "FoodItem", in: context)
+            let newMeal = FoodItem(entity: entity!, insertInto: context)
+            newMeal.id = meals.count as NSNumber
+            newMeal.foodInfo = infoTextEdit.text
+            newMeal.foodImage = mealImage.image?.pngData()
+            newMeal.dateCreated = Date()
+            
+            do {
+                try context.save()
+                meals.append(newMeal)
+                navigationController?.popViewController(animated: true)
+                
+            } catch {
+                print("Context couldn't be saved")
+            }
+        } else {
+            
+           //Edit An Existing Meal
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "FoodItem")
+            
+            do {
+                let results: NSArray = try context.fetch(request) as NSArray
+                var meal: FoodItem
+                for result in results {
+                    
+                    meal = result as! FoodItem
+                    
+                    if meal == selectedMeal {
+                        meal.foodImage = mealImage.image?.pngData()
+                        meal.foodInfo = infoTextEdit.text
+                        try context.save()
+                        navigationController?.popViewController(animated: true)
+                        
+                    }
+                }
+                
+            } catch {
+                print("Fetching Food Failed. I guess you'll have to try and remember all the food you ate 😭")
+            }
+            
+        }
+        
     }
     
-
-
 }
+
+
+
+extension MealViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func presentPhotoActionSheet() {
+        let alertList = UIAlertController(title: "Food Journal",
+                                            message: "",
+                                            preferredStyle: .actionSheet)
+   
+        alertList.addAction(UIAlertAction(title: "Take Photo",
+                                            style: .default,
+                                            handler: { [weak self] _ in
+            
+            self?.presentCamera()
+        }))
+        alertList.addAction(UIAlertAction(title: "Choose a Photo",
+                                            style: .default,
+                                            handler: { [weak self] _ in
+            self?.presentPhotoPicker()
+        }))
+        
+        alertList.addAction(UIAlertAction(title: "Cancel",
+                                            style: .cancel,
+                                            handler: nil))
+        present(alertList, animated: true)
+    }
+    
+    
+    func presentCamera() {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.sourceType = .camera
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    func presentPhotoPicker() {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.sourceType = .photoLibrary
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        print(info)
+        
+        guard let selectedImage = info[.editedImage] as? UIImage else {
+            return
+        }
+        
+        self.mealImage.image = selectedImage
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
